@@ -1,0 +1,58 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+.eggs/
+build/
+dist/
+pip-wheel-metadata/
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.cache/
+.mypy_cache/
+.ruff_cache/
+
+# ---------- Virtual env ----------
+.venv/
+venv/
+ENV/
+env/
+
+# ---------- IDE / Editors ----------
+.vscode/
+.idea/
+*.iml
+
+# ---------- OS ----------
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# ---------- Logs ----------
+*.log
+
+# ---------- Allure ----------
+allure-results/
+allure-report/
+
+# ---------- Test artifacts ----------
+screenshots/
+downloads/
+
+# ---------- dotenv / local config ----------
+.env
+.env.*
+*.env
+
+# ---------- Jupyter ----------
+.ipynb_checkpoints/
+
+# ---------- Misc ----------
+*.tmp
+*.bak
