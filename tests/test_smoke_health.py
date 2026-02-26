@@ -1,6 +1,6 @@
 import pytest
 
-from src.clients.base_client import BaseClient
+from qa_framework.clients.base_client import BaseClient
 
 
 @pytest.mark.smoke

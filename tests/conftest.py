@@ -1,8 +1,10 @@
 import pytest
+import os
 
 from collections.abc import Iterator
-from src.clients.base_client import BaseClient
-from src.config.settings import settings
+from qa_framework.clients.base_client import BaseClient
+from qa_framework.config.settings import settings
+from qa_framework.clients.auth_client import AuthClient
 
 
 @pytest.fixture(scope="session")
@@ -13,3 +15,16 @@ def api_client() -> Iterator[BaseClient]:
     )
     yield client
     client.close()
+
+@pytest.fixture(scope="session")
+def auth_client() -> Iterator[AuthClient]:
+    client = AuthClient(base_url=settings.base_url, timeout_seconds=settings.timeout_seconds)
+    yield client
+    client.close()
+
+@pytest.fixture(scope="session")
+def demo_credentials() -> tuple[str, str]:
+    username = os.getenv("DUMMYJSON_USERNAME", "emilys")
+    password = os.getenv("DUMMYJSON_PASSWORD", "emilyspass")
+    return username, password
+
