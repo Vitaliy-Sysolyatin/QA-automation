@@ -5,6 +5,7 @@ from collections.abc import Iterator
 from qa_framework.clients.base_client import BaseClient
 from qa_framework.config.settings import settings
 from qa_framework.clients.auth_client import AuthClient
+from qa_framework.clients.products_client import ProductsClient
 
 
 @pytest.fixture(scope="session")
@@ -27,4 +28,13 @@ def demo_credentials() -> tuple[str, str]:
     username = os.getenv("DUMMYJSON_USERNAME", "emilys")
     password = os.getenv("DUMMYJSON_PASSWORD", "emilyspass")
     return username, password
+
+@pytest.fixture(scope="session")
+def products_client() -> Iterator[ProductsClient]:
+    client = ProductsClient(
+        base_url=settings.base_url,
+        timeout_seconds=settings.timeout_seconds
+    )
+    yield client
+    client.close()
 
