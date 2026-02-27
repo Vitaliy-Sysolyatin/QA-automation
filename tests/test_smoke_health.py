@@ -1,6 +1,5 @@
 import pytest
 
-from qa_framework.clients.base_client import BaseClient
 from qa_framework.clients.products_client import ProductsClient
 
 
